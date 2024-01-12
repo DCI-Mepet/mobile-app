@@ -15,7 +15,7 @@ data class MainAdapterRow(
     @SerializedName("kabupaten") val kabupaten: String,
     @SerializedName("rating") val rating: String,
     @SerializedName("user_ratings_total") val userRatingsTotal: String,
-    @SerializedName("price") val price: String,
+    @SerializedName("price") var price: String,
     @SerializedName("jenis_sepakbola") val jenisSepakbola: String,
     @SerializedName("jenis_badminton") val jenisBadminton: String,
     @SerializedName("jenis_tenis") val jenisTenis: String,

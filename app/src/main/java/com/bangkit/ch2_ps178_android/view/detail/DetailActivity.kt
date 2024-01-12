@@ -29,8 +29,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val receivedIntent = intent
-        if (receivedIntent != null && receivedIntent.hasExtra("data_paramObj")) {
-            val data_row = receivedIntent.getParcelableExtra<MainAdapterRow>("data_paramObj")
+        if (receivedIntent != null && receivedIntent.hasExtra(BaseModel.paramName)) {
+            val data_row = receivedIntent.getParcelableExtra<MainAdapterRow>(BaseModel.paramName)
 
             // Gunakan data yang diterima di sini
             if (data_row != null) {
@@ -39,26 +39,14 @@ class DetailActivity : AppCompatActivity() {
                 // Implementasikan ke UI dari data yang diterima
                 //untuk gambar
                 var img_el : ImageView = findViewById(R.id.iv_lapangan)
-                var img_url = BaseModel.getImg( data_row )
+                var img_url = BaseModel.getImg()
                 Glide.with(this)
                     .load(img_url)
                     .diskCacheStrategy(DiskCacheStrategy.ALL) // Atur ke DiskCacheStrategy.NONE jika Anda tidak ingin menyimpan cache
                     .into(img_el)
 
-                //untuk data informasi
-                set_txtContent(findViewById(R.id.tv_nama_lapangan), data_row.name)
-                set_txtContent(findViewById(R.id.tv_rating), data_row.rating)
-                set_txtContent(findViewById(R.id.daerah), data_row.kecamatan)
-                set_txtContent(findViewById(R.id.jarak),  data_row.lat)
-                set_txtContent(findViewById(R.id.harga),  "Rp " + data_row.price)
-
-
-                //Untuk data icon
-                set_icon( findViewById(R.id.col_wifi), data_row.fasilitasWifi )
-                set_icon( findViewById(R.id.col_toilet), data_row.fasilitasWC )
-                set_icon( findViewById(R.id.col_parkir_motor), data_row.fasilitasParkirMotor )
-                set_icon( findViewById(R.id.col_parkir_mobil), data_row.fasilitasParkirMobil )
-                set_icon( findViewById(R.id.col_check_in), data_row.fasilitasMushola )
+                //untuk implementasi data informasi ke elemen
+//                set_txtContent(findViewById(R.id.tv_nama_lapangan), data_row.name)
 
 
                 //Event pesan
@@ -94,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
 
         //BaseModel.swal(requireContext(), "s")
         val intent = Intent(this, Booking::class.java)
-        intent.putExtra("data_paramObj", data_row_obj)
+        intent.putExtra(BaseModel.paramName, data_row_obj)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }

@@ -30,15 +30,6 @@ class SignupActivity : AppCompatActivity() {
     lateinit var moveToLogin: TextView
     lateinit var progressDialog: ProgressDialog
 
-    var firebaseAuth = FirebaseAuth.getInstance()
-
-    override fun onStart() {
-        super.onStart()
-        if (firebaseAuth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -76,29 +67,8 @@ class SignupActivity : AppCompatActivity() {
         val email = editEmail.text.toString()
         val password = editPassword.text.toString()
 
-        progressDialog.show()
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val userUpdateProfile = userProfileChangeRequest {
-                        displayName = name
-                    }
-                    val user = task.result.user
-                    user?.updateProfile(userUpdateProfile)
-                        ?.addOnCompleteListener {
-                            progressDialog.dismiss()
-                            startActivity(Intent(this, MainActivity::class.java))
-                        }
-                        ?.addOnFailureListener { error2 ->
-                            Toast.makeText(this, error2.localizedMessage, LENGTH_SHORT).show()
-                        }
-                } else {
-                    progressDialog.dismiss()
-                }
-            }
-            .addOnFailureListener { error ->
-                Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
-            }
+        BaseModel.swal(this, "Proses validasi daftar")
+
     }
 
 

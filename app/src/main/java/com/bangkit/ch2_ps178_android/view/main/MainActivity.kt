@@ -2,11 +2,13 @@ package com.bangkit.ch2_ps178_android.view.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bangkit.ch2_ps178_android.R
-import com.bangkit.ch2_ps178_android.databinding.ActivityMainBinding
+import com.bangkit.ch2_ps178_android.data.model.BaseModel
+
 import com.bangkit.ch2_ps178_android.view.history.HistoryFragment
 import com.bangkit.ch2_ps178_android.view.home.HomeFragment
 import com.bangkit.ch2_ps178_android.view.profile.ProfileFragment
@@ -14,33 +16,39 @@ import com.bangkit.ch2_ps178_android.view.welcome.WelcomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
+
 class MainActivity : AppCompatActivity(), ProfileFragment.LogoutListener {
 
-    private lateinit var binding: ActivityMainBinding
+
     lateinit var bottomNav: BottomNavigationView
-    val firebaseAuth = FirebaseAuth.getInstance()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main) // Gantilah dengan layout utama Anda (biasanya R.layout.activity_main)
+
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         supportActionBar?.hide()
+        bottomNav = findViewById(R.id.bottomNav)
 
-        bottomNav = binding.bottomNav
 
-        val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser != null) {
-            setupFragments()
-            setupBottomNavigation()
-        } else {
-            startActivity(Intent(this, WelcomeActivity::class.java))
-            finish()
-        }
+
+
+        setupFragments()
+        setupBottomNavigation()
+
+//        direct_welcome()
     }
 
+
+
+    fun direct_welcome(){
+        startActivity(Intent(this, WelcomeActivity::class.java))
+        finish()
+    }
     private fun setupFragments() {
         loadFragment(HomeFragment())
     }
@@ -52,8 +60,8 @@ class MainActivity : AppCompatActivity(), ProfileFragment.LogoutListener {
                     loadFragment(HomeFragment())
                     true
                 }
-                R.id.history -> {
-                    loadFragment(HistoryFragment())
+                R.id.sensor -> {
+
                     true
                 }
                 R.id.profile -> {
@@ -72,7 +80,6 @@ class MainActivity : AppCompatActivity(), ProfileFragment.LogoutListener {
     }
 
     override fun onLogout() {
-        firebaseAuth.signOut()
         startActivity(Intent(this, WelcomeActivity::class.java))
         finish()
     }

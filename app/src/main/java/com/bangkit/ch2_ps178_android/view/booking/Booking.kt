@@ -30,7 +30,9 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.cardview.widget.CardView
 import com.bangkit.ch2_ps178_android.R
+import com.bangkit.ch2_ps178_android.data.dataclass.InputModal
 import com.bangkit.ch2_ps178_android.data.dataclass.MainAdapterRow
+import com.bangkit.ch2_ps178_android.data.dataclass.PassingData
 import com.bangkit.ch2_ps178_android.data.model.BaseModel
 import com.bangkit.ch2_ps178_android.view.payment.PaymentActivity
 import com.bumptech.glide.Glide
@@ -98,26 +100,25 @@ class Booking : AppCompatActivity() {
             modalCatatan.hide()
         }
 
-
-
-
         //Isi dropdown di UI
 
         //===  Untuk CheckIn
         var list_jam_drskrg = list_jamDariSekarang().toTypedArray()
         val col_checkin: LinearLayout = findViewById(R.id.col_check_in)
         val jam_checkin : AutoCompleteTextView = findViewById(R.id.jam_checkin)
+        jam_checkin.isEnabled = false
         set_dropdownCheck( col_checkin, jam_checkin, list_jam_drskrg )
 
         // Untuk Checkout
         val col_checkout: LinearLayout = findViewById(R.id.col_check_out)
         val jam_checkout : AutoCompleteTextView = findViewById(R.id.jam_checkout)
+        jam_checkout.isEnabled = false
         set_dropdownCheck( col_checkout, jam_checkout, list_jam_drskrg )
 
         //implementasi data ke ui
         val receivedIntent = intent
-        if (receivedIntent != null && receivedIntent.hasExtra("data_paramObj")) {
-            val data_row = receivedIntent.getParcelableExtra<MainAdapterRow>("data_paramObj")
+        if (receivedIntent != null && receivedIntent.hasExtra(BaseModel.paramName)) {
+            val data_row = receivedIntent.getParcelableExtra<MainAdapterRow>(BaseModel.paramName)
 
             // Gunakan data yang diterima di sini
             if (data_row != null) {
@@ -125,7 +126,7 @@ class Booking : AppCompatActivity() {
                 // Implementasikan ke UI dari data yang diterima
                 //untuk gambar
                 var img_el : ImageView = findViewById(R.id.iv_lapangan)
-                var img_url = BaseModel.getImg( data_row )
+                var img_url = BaseModel.getImg()
                 Glide.with(this)
                     .load(img_url)
                     .diskCacheStrategy(DiskCacheStrategy.ALL) // Atur ke DiskCacheStrategy.NONE jika Anda tidak ingin menyimpan cache
@@ -389,79 +390,6 @@ class ModalCatatan( context: Context ) : ModalSetting() {
 }
 
 
-data class InputModal(
-    val namaLengkap: String = "null",
-    val email: String = "null",
-    val nomor: String = "null",
-    var catatan: String = "null"
-) : Parcelable {
-    // Implementasi Parcelable
-    constructor(parcel: Parcel) : this(
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: ""
-    )
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(namaLengkap)
-        parcel.writeString(email)
-        parcel.writeString(nomor)
-        parcel.writeString(catatan)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<InputModal> {
-        override fun createFromParcel(parcel: Parcel): InputModal {
-            return InputModal(parcel)
-        }
-
-        override fun newArray(size: Int): Array<InputModal?> {
-            return arrayOfNulls(size)
-        }
-    }
-}
-
-data class PassingData(
-    val mainAdapterRow: MainAdapterRow,
-    val dataInput: InputModal,
-    val tanggal: String = "",
-    val checkIn: String = "",
-    val checkOut: String = "",
-
-) : Parcelable {
-    // Implementasi Parcelable
-    constructor(parcel: Parcel) : this(
-        parcel.readParcelable(MainAdapterRow::class.java.classLoader)!!,
-        parcel.readParcelable(InputModal::class.java.classLoader)!!,
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-    )
 
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeParcelable(mainAdapterRow, flags)
-        parcel.writeParcelable(dataInput, flags)
-        parcel.writeString(checkIn)
-        parcel.writeString(tanggal)
-        parcel.writeString(checkOut)
-    }
 
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<PassingData> {
-        override fun createFromParcel(parcel: Parcel): PassingData {
-            return PassingData(parcel)
-        }
-
-        override fun newArray(size: Int): Array<PassingData?> {
-            return arrayOfNulls(size)
-        }
-    }
-}

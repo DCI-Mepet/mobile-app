@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gorena</string>
+    <string name="app_name">Tanamu</string>
 
     <string name="signup">Daftar</string>
     <string name="login">Masuk</string>
@@ -9,14 +9,14 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
 
-    <string name="title_welcome_page_1">Selamat datang di Gorena!</string>
-    <string name="title_welcome_page_2">Cari lapangan jadi mudah dan cepat!</string>
-    <string name="title_welcome_page_3">Tidak ada uang cash? Aman!</string>
-    <string name="title_welcome_page_4">Tidak perlu repot datang ke tempat!</string>
-    <string name="message_welcome_page_1">Gorena hadir untuk membantumu dalam melakukan pemesanan lapangan untuk olahraga. Olahraga gak nanti-nanti!</string>
-    <string name="message_welcome_page_2">Gorena akan merekomendasikan lapangan yang paling cocok denganmu, jadi lebih gampang kan?</string>
-    <string name="message_welcome_page_3">Menerima pembayaran cashless. Uang aman, olahraga tenang!</string>
-    <string name="message_welcome_page_4">Gorena bisa bantu kamu sewa lapangan hanya dengan satu klik! Langsung aja cobain!</string>
+    <string name="title_welcome_page_1">Selamat datang di Tanamu!</string>
+    <string name="title_welcome_page_2">Cari referensi kebunmu dengan mudah dan cepat!</string>
+    <string name="title_welcome_page_3"> Bingung gak punya dasar nanem? Aman!</string>
+    <string name="title_welcome_page_4"> Gunakan !</string>
+    <string name="message_welcome_page_1"> Tanamu hadir untuk membantumu dalam membuat kebun yang kamu mau. Nanem kebun gak nanti-nanti!</string>
+    <string name="message_welcome_page_2"> Tanamu akan merekomendasikan kebun yang paling cocok denganmu, jadi lebih gampang kan?</string>
+    <string name="message_welcome_page_3"> Tanamu Kalimat 3 </string>
+    <string name="message_welcome_page_4"> Tanamu bisa bantu kamu buat kebun hanya dengan satu klik! Langsung aja cobain!</string>
 
     <string name="message_login_page">Masukkan dulu datamu ya</string>
     <string name="message_main_page">Mau olahraga apa hari ini, maniez?</string>

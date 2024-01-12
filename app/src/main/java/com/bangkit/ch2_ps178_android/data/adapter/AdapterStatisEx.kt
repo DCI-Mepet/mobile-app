@@ -46,8 +46,8 @@ class AdapterStatisEx(private val itemClickListener: (MainAdapterRowStatis, Card
         //Menetapkan aturan UI, dan di terapkan pada object Holder di method onBindViewHolder
         val img: ShapeableImageView = itemView.findViewById(R.id.gambar)
         val judul: TextView = itemView.findViewById(R.id.judul)
-        val jarak: TextView = itemView.findViewById(R.id.jarak)
-        val harga: TextView = itemView.findViewById(R.id.harga)
+        val konten: TextView = itemView.findViewById(R.id.konten)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -59,8 +59,7 @@ class AdapterStatisEx(private val itemClickListener: (MainAdapterRowStatis, Card
         val data = itemList[position]
         val img_data = data.img
         val judul_data = data.judul
-        val jarak : String = data.jarak
-        val harga : String = data.harga
+        val konten_data = data.konten
 
         val card_story = holder.itemView.findViewById<CardView>(R.id.card_story)
 
@@ -69,8 +68,8 @@ class AdapterStatisEx(private val itemClickListener: (MainAdapterRowStatis, Card
             .diskCacheStrategy(DiskCacheStrategy.ALL) // Atur ke DiskCacheStrategy.NONE jika Anda tidak ingin menyimpan cache
             .into(holder.img)
         holder.judul.text = judul_data
-        holder.jarak.text = jarak
-        holder.harga.text = harga
+        holder.konten.text = konten_data
+
 
 
         // Dalam Activity atau Fragment

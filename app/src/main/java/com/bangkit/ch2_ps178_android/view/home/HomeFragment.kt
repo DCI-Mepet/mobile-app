@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.ch2_ps178_android.R
 import com.bangkit.ch2_ps178_android.data.adapter.AdapterStatis
+import com.bangkit.ch2_ps178_android.data.adapter.AdapterStatisEx
 import com.bangkit.ch2_ps178_android.data.adapter.MainAdapter
 import com.bangkit.ch2_ps178_android.data.api.MainApi
 import com.bangkit.ch2_ps178_android.data.dataclass.MainAdapterRow
+import com.bangkit.ch2_ps178_android.data.dataclass.MainAdapterRowStatis
 import com.bangkit.ch2_ps178_android.data.model.BaseModel
 import com.bangkit.ch2_ps178_android.data.model.MainModel
 import com.bangkit.ch2_ps178_android.view.detail.DetailActivity
@@ -44,7 +46,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        loadContentList()
+//        loadContentList()
+        loadContentList_non()
 
     }
 
@@ -58,6 +61,55 @@ class HomeFragment : Fragment() {
         shimmerLoad.visibility = View.GONE
         shimmerLoad.stopShimmer()
     }
+
+
+
+
+    private fun loadContentList_non(){
+//        Ini data content yang gak pake paging
+        val adapter = AdapterStatisEx { item, cardView ->
+
+            direct_event( "1" )
+            // Tangani item klik di sini
+            // `item` adalah objek dari data class MainAdapterRowStatis
+            // `cardView` adalah CardView yang diklik
+            // Anda dapat menambahkan logika atau tindakan yang sesuai di sini
+        }
+
+        val recyclerView: RecyclerView = requireView().findViewById(R.id.data_list)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+
+
+        // Data manual yang akan Anda tambahkan ke dalam adapter
+        val manualDataList = listOf(
+            MainAdapterRowStatis("kebun1", BaseModel.getImg(), "Judul 1", "Lorem"),
+            MainAdapterRowStatis("kebun1",  BaseModel.getImg(), "Judul 2", "Lorem"),
+            MainAdapterRowStatis("kebun1",  BaseModel.getImg(), "Judul 3", "Lorem"),
+            MainAdapterRowStatis("kebun1",  BaseModel.getImg(), "Judul 4", "Lorem"),
+            MainAdapterRowStatis("kebun1",  BaseModel.getImg(), "Judul 5", "Lorem"),
+            MainAdapterRowStatis("kebun1",  BaseModel.getImg(), "Judul 6", "Lorem"),
+            // Tambahkan item lain sesuai kebutuhan Anda
+        )
+
+        // Mengisi adapter dengan data manual
+        adapter.submitList(manualDataList)
+
+        stop_shimmer()
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     private fun loadContentList() {
 //        Ini data content yang pake paging, cuman yaa gituh
@@ -107,8 +159,6 @@ class HomeFragment : Fragment() {
                 stop_shimmer()
             }
         }
-
-
 
 
     }

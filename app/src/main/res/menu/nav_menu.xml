@@ -5,11 +5,17 @@
         android:icon="@drawable/ic_home_black"
         android:title="@string/home" />
     <item
-        android:id="@+id/history"
-        android:icon="@drawable/ic_history_black"
-        android:title="@string/history" />
+        android:id="@+id/sensor"
+        android:icon="@drawable/ic_circle_outlined"
+        android:title="START" />
+<!--    <item-->
+<!--        android:id="@+id/history"-->
+<!--        android:icon="@drawable/ic_history_black"-->
+<!--        android:title="@string/history" />-->
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_profile_black"
         android:title="@string/profile" />
+
+
 </menu>

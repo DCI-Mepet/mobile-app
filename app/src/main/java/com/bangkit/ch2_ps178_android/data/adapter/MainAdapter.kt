@@ -39,32 +39,20 @@ class MainAdapter(private val onItem_click: (MainAdapterRow, CardView) -> Unit) 
 
 
             //Ambil datanya
-            val img_data = BaseModel.getImg( item )
+            val img_data = "https://disbun.kaltimprov.go.id/upload/artikel/medium_07-10-2019-01-04-12-8067.jpg"
             val judul_data = item.name
-            val jarak_data: String = item.lat
-            val harga_data: String = item.price
-            val rating_data: String = item.rating
-            val lokasi_data: String = item.kecamatan
-
 
             //Menetapkan aturan UI, dan di terapkan pada object Holder di method onBindViewHolder
             val img: ShapeableImageView = itemView.findViewById(R.id.gambar)
             val judul: TextView = itemView.findViewById(R.id.judul)
-            val jarak: TextView = itemView.findViewById(R.id.jarak)
-            val harga: TextView = itemView.findViewById(R.id.harga)
-            val rating: TextView = itemView.findViewById(R.id.rating)
-            val lokasi: TextView = itemView.findViewById(R.id.lokasi)
+            val konten: TextView = itemView.findViewById(R.id.konten)
 
             Glide.with(itemView)
                 .load(img_data)
                 .diskCacheStrategy(DiskCacheStrategy.ALL) // Atur ke DiskCacheStrategy.NONE jika Anda tidak ingin menyimpan cache
                 .into(img)
             judul.text = judul_data
-            jarak.text = jarak_data
-            harga.text = "Rp " + harga_data
-            lokasi.text = lokasi_data
-            rating.text = rating_data
-
+            konten.text = "saya adalah petani singkong real estet"
 
             //event setiap item ketika di klik dengan melakukan call back
             val card_story = itemView.findViewById<CardView>(R.id.card_story)

@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tb_about_us_back"
-            app:srcCompat="@drawable/logo_gorena_3" />
+            app:srcCompat="@drawable/logo_tanamu" />
 
         <TextView
             android:id="@+id/about_gorena"

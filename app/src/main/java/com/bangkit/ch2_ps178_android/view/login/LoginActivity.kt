@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import com.bangkit.ch2_ps178_android.R
 import com.bangkit.ch2_ps178_android.data.model.BaseModel
 import com.bangkit.ch2_ps178_android.databinding.ActivityLoginBinding
+import com.bangkit.ch2_ps178_android.view.detail.DetailActivity
 import com.bangkit.ch2_ps178_android.view.main.MainActivity
 import com.bangkit.ch2_ps178_android.view.signup.SignupActivity
 import com.bangkit.ch2_ps178_android.view.welcome.WelcomeActivity
@@ -28,13 +29,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var moveToSignup: TextView
     private lateinit var progressDialog: ProgressDialog
 
-    private var firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onStart() {
         super.onStart()
-        if (firebaseAuth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +45,11 @@ class LoginActivity : AppCompatActivity() {
         moveToSignup = binding.tvLoginToSignup
 
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Udah siap olahraga banget nih keknya.")
+        progressDialog.setTitle("Proses validasi.")
         progressDialog.setMessage("Tunggu sebentar, ya!")
 
+
+        //Ketika tmbol login di klik dan melakukan validasi
         btnLogin.setOnClickListener {
             if (editEmail.text.isNotEmpty() && editPassword.text.isNotEmpty()) {
                 loginProcess()
@@ -72,16 +71,14 @@ class LoginActivity : AppCompatActivity() {
         val password = editPassword.text.toString()
 
         progressDialog.show()
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            .addOnFailureListener {error ->
-                Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
-            }
-            .addOnCompleteListener {
-                progressDialog.dismiss()
-            }
+        direct_main( "1")
+
+    }
+    fun direct_main( param : String ){
+        //Ini ngirim data dengan anggapan data ke detail diambil dari link by id
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("param", param)
+        startActivity(intent)
     }
 
     private fun setupView() {

@@ -4,6 +4,5 @@ data class MainAdapterRowStatis(
     val id : String,
     val img : String,
     val judul : String,
-    val jarak : String,
-    val harga : String
+    val konten : String,
 )

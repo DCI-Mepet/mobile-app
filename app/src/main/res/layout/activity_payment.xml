@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
-                app:srcCompat="@drawable/image_badminton" />
+                app:srcCompat="@drawable/logo_tanamu" />
 
             <LinearLayout
                 android:layout_width="match_parent"

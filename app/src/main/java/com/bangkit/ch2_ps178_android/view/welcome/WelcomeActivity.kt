@@ -3,6 +3,7 @@ package com.bangkit.ch2_ps178_android.view.welcome
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bangkit.ch2_ps178_android.data.model.BaseModel
 import com.bangkit.ch2_ps178_android.databinding.ActivityWelcomeBinding
 import com.bangkit.ch2_ps178_android.view.login.LoginActivity
 import com.bangkit.ch2_ps178_android.view.signup.SignupActivity
@@ -17,6 +18,9 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+
+//        BaseModel.swal(this, "Coba")
 
         setupAction()
     }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
+    android:background="@color/background_prime"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_welcome_scene"
@@ -16,53 +17,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_gorena_1"/>
+        app:srcCompat="@drawable/logo_tanamu"/>
 
     <ImageView
         android:id="@+id/welcome_image_1"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/image_badminton"
+        android:src="@drawable/img_welcome1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
-    <TextView
+    <ImageView
         android:id="@+id/welcome_title_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
-        android:text="@string/title_welcome_page_1"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:src="@drawable/iti"
         app:layout_constraintEnd_toEndOf="@+id/welcome_image_1"
         app:layout_constraintStart_toStartOf="@+id/welcome_image_1"
         app:layout_constraintTop_toBottomOf="@+id/welcome_image_1" />
-
-    <TextView
-        android:id="@+id/welcome_desc_1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal"
-        android:text="@string/message_welcome_page_1"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_title_1"
-        app:layout_constraintStart_toStartOf="@+id/welcome_title_1"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_title_1" />
 
     <ImageView
         android:id="@+id/welcome_image_2"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_basket"
+        android:src="@drawable/img_welcome2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -73,9 +56,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/welcome_image_2"
@@ -88,10 +71,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
         android:text="@string/message_welcome_page_2"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/welcome_title_2"
         app:layout_constraintStart_toStartOf="@+id/welcome_title_2"
@@ -101,7 +84,7 @@
         android:id="@+id/welcome_image_3"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_sepakbola"
+        android:src="@drawable/img_welcome3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -112,9 +95,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/welcome_image_3"
@@ -127,9 +110,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/welcome_title_3"
         app:layout_constraintStart_toStartOf="@+id/welcome_title_3"
@@ -140,7 +123,7 @@
         android:id="@+id/welcome_image_4"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_voli"
+        android:src="@drawable/img_welcome4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -151,9 +134,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/welcome_image_4"
@@ -166,9 +149,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/popiin"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/welcome_title_4"
         app:layout_constraintStart_toStartOf="@+id/welcome_title_4"
@@ -185,7 +168,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:srcCompat="@drawable/ic_circle_outlined"
-        app:tint="@color/orange700" />
+        app:tint="@color/white" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_2"
@@ -197,7 +180,7 @@
         app:layout_constraintStart_toEndOf="@+id/circle_1"
         app:layout_constraintTop_toTopOf="@+id/circle_1"
         app:srcCompat="@drawable/ic_circle_outlined"
-        app:tint="@color/orange700" />
+        app:tint="@color/white" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_3"
@@ -209,7 +192,7 @@
         app:layout_constraintStart_toEndOf="@+id/circle_2"
         app:layout_constraintTop_toTopOf="@+id/circle_2"
         app:srcCompat="@drawable/ic_circle_outlined"
-        app:tint="@color/orange700" />
+        app:tint="@color/white" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_4"
@@ -222,7 +205,7 @@
         app:layout_constraintStart_toEndOf="@+id/circle_3"
         app:layout_constraintTop_toTopOf="@+id/circle_3"
         app:srcCompat="@drawable/ic_circle_outlined"
-        app:tint="@color/orange700" />
+        app:tint="@color/white" />
 
     <LinearLayout
         android:id="@+id/button"
@@ -236,9 +219,9 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="@string/signup"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="@font/popiin"
             android:textStyle="bold"
-            android:textColor="@color/orange700"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_marginEnd="18dp"
@@ -246,18 +229,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_login"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:strokeColor="@color/orange700"
+            app:strokeColor="@color/white"
             app:strokeWidth="2dp" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:backgroundTint="@color/orange700"
+            android:backgroundTint="@color/white"
             android:text="@string/login"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="@font/popiin"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/background_prime"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_marginStart="18dp"

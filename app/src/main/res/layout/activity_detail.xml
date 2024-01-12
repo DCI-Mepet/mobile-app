@@ -8,7 +8,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/background_prime"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_detail_back"
@@ -22,296 +24,105 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
-                android:layout_marginStart="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/field_detail"
+                android:fontFamily="@font/popiin"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="66dp"
+                tools:layout_editor_absoluteY="10dp" />
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ImageView
-            android:id="@+id/iv_lapangan"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:contentDescription="@string/field_photo"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/_lap"
-            app:layout_constraintTop_toBottomOf="@id/tb_detail_back"/>
-
-        <TextView
-            android:id="@+id/tv_nama_lapangan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/field_name"
-            android:fontFamily="sans-serif-condensed"
-            android:textStyle="bold"
-            android:textSize="32sp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_lapangan" />
-
+        <!--    Layout Utama -->
         <LinearLayout
-            android:id="@+id/layout_informasi"
+            android:id="@+id/layout_utama"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nama_lapangan">
-
-            <ImageView
-                android:id="@+id/iv_chevron"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_star"
-                android:contentDescription="@string/star_rating" />
-
-            <TextView
-                android:id="@+id/tv_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/field_rating"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/orange700"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/pembatas"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/ic_dot"
-                android:contentDescription="@string/divider" />
-
-            <TextView
-                android:id="@+id/daerah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/area_name"
-                android:fontFamily="sans-serif-condensed"/>
-
-            <ImageView
-                android:id="@+id/pembatas2"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/ic_dot"
-                android:contentDescription="@string/divider" />
-
-            <TextView
-                android:id="@+id/jarak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/jarak"
-                android:fontFamily="sans-serif-condensed"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_booking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_informasi">
-
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/harga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/price"
-                    android:textColor="@color/orange700"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/per_jam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/per_hour"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_pesan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/booking"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/deskripsi_lapangan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/lorem_ipsum"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_booking" />
-
-        <LinearLayout
-            android:id="@+id/layout_fasilitas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deskripsi_lapangan">
+            android:paddingTop="70dp">
 
-            <TextView
-                android:id="@+id/judul1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/facility"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <GridLayout
-                android:id="@+id/grid_lapangan"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="5"
-                android:orientation="horizontal"
-                android:paddingTop="10dp"
-                android:rowCount="2">
+                android:layout_height="match_parent">/>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/col_toilet"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:cardBackgroundColor="@color/orange700"
-                    app:cardCornerRadius="15dp">
+                <LinearLayout
+                    android:id="@+id/layout_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/toilet"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/toilet"
-                        app:srcCompat="@drawable/ic_toilet" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="1000dp"
+                        android:layout_marginTop="50dp"
+                        app:cardBackgroundColor="#EDF3ED"
+                        app:cardCornerRadius="30dp"
+                        app:cardPreventCornerOverlap="false" />
+                </LinearLayout>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/col_parkir_motor"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    app:cardBackgroundColor="@color/orange700"
-                    app:cardCornerRadius="15dp">
+                <LinearLayout
 
-                    <ImageView
-                        android:id="@+id/parkir_motor"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/motor_parking"
-                        app:srcCompat="@drawable/ic_park_motor" />
-                </androidx.cardview.widget.CardView>
+                    android:id="@+id/layout_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/col_parkir_mobil"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    app:cardBackgroundColor="@color/orange700"
-                    app:cardCornerRadius="15dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="1000dp"
+                        app:cardCornerRadius="15dp">
 
-                    <ImageView
-                        android:id="@+id/parkir_mobil"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/car_parking"
-                        app:srcCompat="@drawable/ic_park_car" />
-                </androidx.cardview.widget.CardView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="20dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/col_check_in"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    app:cardBackgroundColor="@color/orange700"
-                    app:cardCornerRadius="15dp">
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
 
-                    <ImageView
-                        android:id="@+id/mushola"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/musholla"
-                        app:srcCompat="@drawable/ic_mosque" />
-                </androidx.cardview.widget.CardView>
+                                app:srcCompat="@drawable/produk" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/col_wifi"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    app:cardBackgroundColor="@color/orange700"
-                    app:cardCornerRadius="15dp">
+                            <TextView
+                                android:id="@+id/judul"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:fontFamily="@font/popiin"
+                                android:text="Judul"
+                                android:textSize="20dp" />
 
-                    <ImageView
-                        android:id="@+id/wifi"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/wifi"
-                        app:srcCompat="@drawable/ic_wifi" />
-                </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:id="@+id/konten"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/popiin"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                android:textSize="16dp" />
 
-            </GridLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
+
+        <!--    End Of Layout Utama -->
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

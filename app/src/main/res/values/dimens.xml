@@ -2,4 +2,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="lebar">60dp</dimen>
     <dimen name="margin_right">40dp</dimen>
+    <dimen name="icon_size_center">70dp</dimen>
 </resources>
