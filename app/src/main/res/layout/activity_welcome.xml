@@ -160,8 +160,8 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="32dp"
         app:altSrc="@drawable/ic_circle_full"
         app:layout_constraintEnd_toStartOf="@+id/circle_2"
@@ -172,8 +172,8 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         app:altSrc="@drawable/ic_circle_full"
         app:layout_constraintBottom_toBottomOf="@+id/circle_1"
         app:layout_constraintEnd_toStartOf="@+id/circle_3"
@@ -184,8 +184,8 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         app:altSrc="@drawable/ic_circle_full"
         app:layout_constraintBottom_toBottomOf="@+id/circle_2"
         app:layout_constraintEnd_toStartOf="@+id/circle_4"
@@ -196,8 +196,8 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/circle_4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginEnd="32dp"
         app:altSrc="@drawable/ic_circle_full"
         app:layout_constraintBottom_toBottomOf="@+id/circle_3"
@@ -244,7 +244,7 @@
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_marginStart="18dp"
-            app:layout_constraintStart_toEndOf="@+id/btn_signup"
+            app:layout_constraintStart_toEndOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
     </LinearLayout>

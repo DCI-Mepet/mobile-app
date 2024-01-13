@@ -6,18 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bangkit.ch2_ps178_android.R
 import com.bangkit.ch2_ps178_android.data.model.BaseModel
 import com.bangkit.ch2_ps178_android.databinding.ActivitySignupBinding
 import com.bangkit.ch2_ps178_android.view.login.LoginActivity
-import com.bangkit.ch2_ps178_android.view.main.MainActivity
 import com.bangkit.ch2_ps178_android.view.welcome.WelcomeActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.userProfileChangeRequest
 
 class SignupActivity : AppCompatActivity() {
 
@@ -39,7 +34,7 @@ class SignupActivity : AppCompatActivity() {
         editEmail = binding.editSignupEmail
         editPassword = binding.editSignupPassword
         btnSignup = binding.btnSignup
-        moveToLogin = binding.tvSignupToLogin
+        moveToLogin = binding.linkToLogin
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Sedang daftarin kamu, iya kamu.")
@@ -58,7 +53,6 @@ class SignupActivity : AppCompatActivity() {
             finish()
         }
 
-
         setupView()
     }
 
@@ -67,13 +61,14 @@ class SignupActivity : AppCompatActivity() {
         val email = editEmail.text.toString()
         val password = editPassword.text.toString()
 
-        BaseModel.swal(this, "Proses validasi daftar")
 
+        BaseModel.swal(this, "Proses validasi daftar, coming soon!")
+        direct_login()
     }
 
 
     private fun setupView() {
-        val toolbar: Toolbar = findViewById(R.id.tb_signup_back)
+        val toolbar: Toolbar = findViewById(R.id.tb_login_back)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -87,6 +82,11 @@ class SignupActivity : AppCompatActivity() {
         super.onBackPressed()
         val intent = Intent(this, WelcomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
+    }
+    fun direct_login(){
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

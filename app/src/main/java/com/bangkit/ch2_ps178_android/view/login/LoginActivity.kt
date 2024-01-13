@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var editEmail: EditText
     private lateinit var editPassword: EditText
     private lateinit var btnLogin: Button
-    private lateinit var moveToSignup: TextView
+    private lateinit var linkToSign: TextView
     private lateinit var progressDialog: ProgressDialog
 
 
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         editEmail = binding.editLoginEmail
         editPassword = binding.editLoginPassword
         btnLogin = binding.btnLogin
-        moveToSignup = binding.tvLoginToSignup
+        linkToSign = binding.linkToSign
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Proses validasi.")
@@ -58,7 +58,8 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        moveToSignup.setOnClickListener {
+        //Ketika text daftar di klik
+        linkToSign.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
             finish()
         }
@@ -70,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
         val email = editEmail.text.toString()
         val password = editPassword.text.toString()
 
-        progressDialog.show()
         direct_main( "1")
 
     }
